@@ -1,1 +1,5 @@
-/*    /index.html   200
+# API proxy (the VFL API is plain HTTP, so the browser can't call it directly from an HTTPS page)
+/api/*    http://46.62.230.64:8081/api/:splat   200
+
+# SPA fallback — must stay last
+/*        /index.html                           200
