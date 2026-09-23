@@ -1,0 +1,233 @@
+.bout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(255, 42, 48, 0.1), #0e0e10 30%, #0e0e10 70%, rgba(61, 123, 255, 0.1));
+  border: 1px solid var(--vfl-line);
+  transition: border-color 250ms var(--vfl-ease);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: rem(4px);
+  }
+
+  &::before {
+    left: 0;
+    background: #ff2a30;
+  }
+
+  &::after {
+    right: 0;
+    background: #3d7bff;
+  }
+
+  @mixin hover {
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+.main {
+  border-color: rgba(203, 1, 6, 0.5);
+  background:
+    radial-gradient(ellipse 50% 90% at 0% 100%, rgba(255, 42, 48, 0.28), transparent 70%),
+    radial-gradient(ellipse 50% 90% at 100% 100%, rgba(61, 123, 255, 0.22), transparent 70%),
+    #0e0e10;
+}
+
+.corner {
+  display: flex;
+  align-items: flex-end;
+  gap: rem(16px);
+  min-width: 0;
+  padding: rem(14px) rem(20px) 0;
+  transition: opacity 300ms var(--vfl-ease);
+
+  &[data-loser] {
+    opacity: 0.45;
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(8px);
+    padding: rem(12px) rem(8px) rem(14px);
+    text-align: center;
+  }
+}
+
+.blue {
+  flex-direction: row-reverse;
+  text-align: right;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.photo {
+  flex: 0 0 auto;
+  width: rem(120px);
+  height: rem(130px);
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    width: rem(84px);
+    height: rem(92px);
+  }
+}
+
+.main .photo {
+  width: rem(200px);
+  height: rem(220px);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    width: rem(120px);
+    height: rem(130px);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+  min-width: 0;
+  padding-bottom: rem(18px);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding-bottom: 0;
+    align-items: center;
+  }
+}
+
+.blue .info {
+  align-items: flex-end;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    align-items: center;
+  }
+}
+
+.nickname {
+  font-size: rem(12px);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--mantine-color-dark-1);
+}
+
+.name {
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(rem(24px), 2.6vw, rem(34px));
+  line-height: 0.95;
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+
+  @mixin hover {
+    color: var(--mantine-color-vfl-4);
+  }
+}
+
+.main .name {
+  font-size: clamp(rem(28px), 3.6vw, rem(52px));
+}
+
+.record {
+  font-size: rem(13px);
+  font-weight: 600;
+  color: var(--mantine-color-dimmed);
+  letter-spacing: 0.06em;
+}
+
+.win {
+  align-self: flex-start;
+  margin-top: rem(6px);
+  padding: rem(2px) rem(10px);
+  font-size: rem(11px);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  background: var(--mantine-color-teal-7);
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    align-self: center;
+  }
+}
+
+.blue .win {
+  align-self: flex-end;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    align-self: center;
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: rem(8px);
+  min-width: rem(170px);
+  padding: rem(16px) rem(8px);
+  text-align: center;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    min-width: rem(70px);
+    padding: rem(12px) 0;
+  }
+}
+
+.vs {
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(38px);
+  line-height: 1;
+  color: var(--mantine-color-dark-2);
+}
+
+.main .vs {
+  font-size: rem(56px);
+  color: var(--mantine-color-white);
+  text-shadow: 0 0 24px rgba(203, 1, 6, 0.8);
+}
+
+.weight {
+  font-size: rem(11px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+}
+
+.result {
+  font-size: rem(13px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--mantine-color-white);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(4px);
+}
+
+@media (max-width: $mantine-breakpoint-sm) {
+  .weight,
+  .tags {
+    display: none;
+  }
+
+  .result {
+    font-size: rem(11px);
+  }
+}

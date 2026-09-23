@@ -1,0 +1,84 @@
+.panel {
+  height: 100%;
+  padding: rem(28px);
+  background: linear-gradient(180deg, #111113, #0b0b0c);
+  border: 1px solid var(--vfl-line);
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    padding: rem(20px);
+  }
+}
+
+.panelTitle {
+  margin-bottom: rem(22px);
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(32px);
+  line-height: 1;
+}
+
+.method {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: rem(6px) rem(12px);
+  align-items: baseline;
+}
+
+.methodLabel {
+  font-size: rem(13px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.methodValue {
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(26px);
+  line-height: 1;
+}
+
+.methodValue small {
+  margin-left: rem(6px);
+  font-family: var(--mantine-font-family);
+  font-size: rem(12px);
+  color: var(--mantine-color-dimmed);
+}
+
+.bar {
+  grid-column: 1 / -1;
+}
+
+.ringLabel {
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(28px);
+  line-height: 1;
+}
+
+.ringCaption {
+  font-size: rem(11px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+  text-align: center;
+}
+
+.tile {
+  padding: rem(18px);
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--mantine-color-vfl-7);
+}
+
+.tileValue {
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(40px);
+  line-height: 1;
+}
+
+.tileLabel {
+  margin-top: rem(4px);
+  font-size: rem(11px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+}

@@ -1,0 +1,96 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: rem(120px);
+  padding: rem(80px) 0 rem(32px);
+  background: #050505;
+  border-top: 1px solid var(--vfl-line);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: rem(3px);
+    background: linear-gradient(90deg, var(--mantine-color-vfl-7), transparent);
+  }
+}
+
+.ghost {
+  position: absolute;
+  right: -1%;
+  bottom: -0.2em;
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(rem(140px), 26vw, rem(420px));
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  user-select: none;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: rem(40px);
+
+  @media (max-width: $mantine-breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heading {
+  margin-bottom: rem(16px);
+  font-size: rem(12px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mantine-color-vfl-4);
+}
+
+.link {
+  display: block;
+  padding: rem(5px) 0;
+  font-size: rem(15px);
+  color: var(--mantine-color-dark-1);
+  text-decoration: none;
+  transition: color 200ms var(--vfl-ease);
+
+  @mixin hover {
+    color: var(--mantine-color-white);
+  }
+}
+
+.social {
+  display: grid;
+  place-items: center;
+  width: rem(42px);
+  height: rem(42px);
+  color: var(--mantine-color-white);
+  border: 1px solid var(--vfl-line);
+  transition: all 200ms var(--vfl-ease);
+
+  @mixin hover {
+    background: var(--mantine-color-vfl-7);
+    border-color: var(--mantine-color-vfl-7);
+  }
+}
+
+.bottom {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: rem(12px);
+  margin-top: rem(64px);
+  padding-top: rem(24px);
+  border-top: 1px solid var(--vfl-line);
+  font-size: rem(13px);
+  color: var(--mantine-color-dimmed);
+}

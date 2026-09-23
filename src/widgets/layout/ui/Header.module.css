@@ -1,0 +1,111 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  transition:
+    background 300ms var(--vfl-ease),
+    border-color 300ms var(--vfl-ease),
+    backdrop-filter 300ms var(--vfl-ease);
+  border-bottom: 1px solid transparent;
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.75), transparent);
+
+  &[data-scrolled] {
+    background: rgba(8, 8, 9, 0.82);
+    border-bottom-color: var(--vfl-line);
+    backdrop-filter: blur(16px) saturate(140%);
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: rem(76px);
+  gap: var(--mantine-spacing-lg);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: rem(4px);
+
+  @media (max-width: $mantine-breakpoint-md) {
+    display: none;
+  }
+}
+
+.link {
+  position: relative;
+  padding: rem(10px) rem(14px);
+  font-size: rem(13px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dark-1);
+  text-decoration: none;
+  transition: color 200ms var(--vfl-ease);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: rem(14px);
+    right: rem(14px);
+    bottom: rem(4px);
+    height: rem(2px);
+    background: var(--mantine-color-vfl-7);
+    transform: scaleX(0) skewX(-20deg);
+    transform-origin: left;
+    transition: transform 300ms var(--vfl-ease);
+  }
+
+  @mixin hover {
+    color: var(--mantine-color-white);
+
+    &::after {
+      transform: scaleX(1) skewX(-20deg);
+    }
+  }
+
+  &[aria-current='page'] {
+    color: var(--mantine-color-white);
+
+    &::after {
+      transform: scaleX(1) skewX(-20deg);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--mantine-spacing-sm);
+}
+
+.cta {
+  @media (max-width: $mantine-breakpoint-xs) {
+    display: none;
+  }
+}
+
+.burger {
+  @media (min-width: $mantine-breakpoint-md) {
+    display: none;
+  }
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: rem(16px) 0;
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(40px);
+  line-height: 1;
+  color: var(--mantine-color-dark-1);
+  text-decoration: none;
+  border-bottom: 1px solid var(--vfl-line);
+
+  &[aria-current='page'] {
+    color: var(--mantine-color-vfl-5);
+  }
+}

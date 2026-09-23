@@ -1,0 +1,32 @@
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(10px);
+  font-size: rem(12px);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--mantine-color-vfl-4);
+
+  &::before {
+    content: '';
+    width: rem(28px);
+    height: rem(3px);
+    background: var(--mantine-color-vfl-7);
+    transform: skewX(-20deg);
+  }
+}
+
+.title {
+  font-size: clamp(rem(42px), 6vw, rem(76px));
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--mantine-spacing-lg);
+  flex-wrap: wrap;
+}

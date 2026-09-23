@@ -1,0 +1,30 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: rem(12px);
+  padding: rem(12px);
+  background: rgba(18, 18, 20, 0.8);
+  border: 1px solid var(--vfl-line);
+  backdrop-filter: blur(12px);
+}
+
+.search {
+  flex: 1 1 rem(260px);
+}
+
+.select {
+  flex: 0 1 rem(280px);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    flex: 1 1 100%;
+  }
+}
+
+.segment {
+  background: #0b0b0c;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    flex: 1 1 100%;
+  }
+}

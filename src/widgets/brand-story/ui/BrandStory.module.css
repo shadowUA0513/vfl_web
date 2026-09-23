@@ -1,0 +1,133 @@
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--vfl-line);
+  border: 1px solid var(--vfl-line);
+
+  @media (max-width: $mantine-breakpoint-md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillar {
+  position: relative;
+  padding: rem(36px) rem(28px);
+  background: #0b0b0c;
+  overflow: hidden;
+  transition: background 300ms var(--vfl-ease);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: rem(3px);
+    background: var(--mantine-color-vfl-7);
+    transition: width 500ms var(--vfl-ease);
+  }
+
+  @mixin hover {
+    background: #111113;
+
+    &::before {
+      width: 100%;
+    }
+
+    .num {
+      color: var(--mantine-color-vfl-6);
+      -webkit-text-stroke-color: var(--mantine-color-vfl-6);
+    }
+  }
+}
+
+.num {
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(72px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+  transition: all 300ms var(--vfl-ease);
+}
+
+.pillarTitle {
+  margin-top: rem(12px);
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(32px);
+  line-height: 1;
+}
+
+.quote {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(rem(40px), 6vw, rem(88px));
+  background:
+    radial-gradient(ellipse 60% 100% at 0% 100%, rgba(203, 1, 6, 0.4), transparent 70%),
+    #0c0c0d;
+  border: 1px solid var(--vfl-line);
+
+  &::before {
+    content: '“';
+    position: absolute;
+    top: rem(-60px);
+    right: rem(24px);
+    font-family: var(--mantine-font-family-headings);
+    font-size: rem(360px);
+    line-height: 1;
+    color: rgba(203, 1, 6, 0.18);
+  }
+}
+
+.quoteText {
+  position: relative;
+  max-width: rem(900px);
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(rem(36px), 5vw, rem(68px));
+  line-height: 0.98;
+}
+
+.quoteText em {
+  font-style: normal;
+  color: var(--mantine-color-vfl-5);
+}
+
+.cite {
+  position: relative;
+  margin-top: rem(24px);
+  font-size: rem(13px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+}
+
+.ticker {
+  padding: rem(18px) 0;
+  background: var(--mantine-color-vfl-7);
+  transform: skewY(-1.5deg);
+  margin: rem(20px) 0;
+}
+
+.tickerItem {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(28px);
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(34px);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    width: rem(12px);
+    height: rem(12px);
+    background: #050505;
+    transform: rotate(45deg);
+  }
+}

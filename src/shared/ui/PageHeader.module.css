@@ -1,0 +1,32 @@
+.root {
+  position: relative;
+  overflow: hidden;
+  padding: rem(150px) 0 rem(56px);
+  border-bottom: 1px solid var(--vfl-line);
+  background:
+    radial-gradient(ellipse 60% 90% at 85% 0%, rgba(203, 1, 6, 0.28), transparent 60%),
+    radial-gradient(ellipse 40% 60% at 0% 100%, rgba(203, 1, 6, 0.1), transparent 70%),
+    var(--vfl-ink);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding: rem(120px) 0 rem(40px);
+  }
+}
+
+.ghost {
+  position: absolute;
+  right: -2%;
+  bottom: -0.18em;
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(rem(120px), 22vw, rem(320px));
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.inner {
+  position: relative;
+}

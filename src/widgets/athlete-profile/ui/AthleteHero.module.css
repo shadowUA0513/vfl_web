@@ -1,0 +1,191 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-top: rem(76px);
+  background:
+    radial-gradient(ellipse 50% 80% at 25% 90%, rgba(203, 1, 6, 0.5), transparent 70%),
+    radial-gradient(ellipse 60% 60% at 100% 0%, rgba(255, 255, 255, 0.05), transparent 70%),
+    #070708;
+  border-bottom: 1px solid var(--vfl-line);
+}
+
+.ghost {
+  position: absolute;
+  left: 50%;
+  bottom: -0.12em;
+  z-index: -1;
+  transform: translateX(-50%);
+  font-family: var(--mantine-font-family-headings);
+  font-size: clamp(rem(160px), 30vw, rem(460px));
+  line-height: 0.8;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: end;
+  gap: rem(40px);
+  min-height: rem(640px);
+
+  @media (max-width: $mantine-breakpoint-md) {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 0;
+  }
+}
+
+.photoWrap {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    order: 2;
+    height: rem(300px);
+  }
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  max-height: rem(660px);
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.8));
+  animation: rise 1s var(--vfl-ease) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: rem(18px);
+  padding: rem(48px) 0 rem(56px);
+
+  @media (max-width: $mantine-breakpoint-md) {
+    padding: rem(32px) 0 rem(8px);
+  }
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(8px);
+  width: fit-content;
+  font-size: rem(12px);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+  text-decoration: none;
+
+  @mixin hover {
+    color: var(--mantine-color-white);
+  }
+}
+
+.nickname {
+  font-size: rem(20px);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--mantine-color-vfl-4);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--mantine-font-family-headings);
+  font-weight: 400;
+  line-height: 0.85;
+}
+
+.first {
+  display: block;
+  font-size: clamp(rem(36px), 4.4vw, rem(60px));
+  color: var(--mantine-color-dark-0);
+}
+
+.last {
+  display: block;
+  font-size: clamp(rem(72px), 9vw, rem(140px));
+  overflow-wrap: anywhere;
+}
+
+.record {
+  display: flex;
+  gap: rem(4px);
+}
+
+.recordCell {
+  flex: 0 1 rem(130px);
+  padding: rem(14px) rem(18px);
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 3px solid var(--cell-color);
+}
+
+.recordValue {
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(56px);
+  line-height: 0.9;
+}
+
+.recordLabel {
+  font-size: rem(11px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+}
+
+.bio {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--vfl-line);
+  border: 1px solid var(--vfl-line);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.bioCell {
+  padding: rem(14px) rem(16px);
+  background: #0b0b0c;
+}
+
+.bioLabel {
+  font-size: rem(10px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mantine-color-dimmed);
+}
+
+.bioValue {
+  margin-top: rem(4px);
+  font-size: rem(17px);
+  font-weight: 700;
+}
+
+.bioSub {
+  font-size: rem(12px);
+  color: var(--mantine-color-dimmed);
+}

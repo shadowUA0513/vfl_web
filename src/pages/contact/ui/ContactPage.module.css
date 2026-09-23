@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  height: 100%;
+  padding: rem(32px);
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(180deg, #111113, #0b0b0c);
+  border: 1px solid var(--vfl-line);
+  transition:
+    border-color 250ms var(--vfl-ease),
+    transform 300ms var(--vfl-ease);
+
+  @mixin hover {
+    border-color: rgba(203, 1, 6, 0.6);
+    transform: translateY(-4px);
+
+    .go {
+      color: var(--mantine-color-white);
+      gap: rem(12px);
+    }
+  }
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: rem(52px);
+  height: rem(52px);
+  color: var(--mantine-color-white);
+  background: var(--mantine-color-vfl-7);
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+
+.title {
+  font-family: var(--mantine-font-family-headings);
+  font-size: rem(36px);
+  line-height: 1;
+}
+
+.go {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(6px);
+  margin-top: auto;
+  padding-top: rem(12px);
+  font-size: rem(13px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mantine-color-vfl-4);
+  transition: all 250ms var(--vfl-ease);
+}
