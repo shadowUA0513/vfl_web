@@ -11,6 +11,15 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
     },
+    build: {
+      sourcemap: false,
+      rolldownOptions: {
+        output: {
+          // Strip console.* from production; keep `debugger` for the devtools guard.
+          minify: { compress: { dropConsole: true, dropDebugger: false } },
+        },
+      },
+    },
     server: {
       proxy: {
         // The API is plain HTTP, so dev requests go through this same-origin proxy.
